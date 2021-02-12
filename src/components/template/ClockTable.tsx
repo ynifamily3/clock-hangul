@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import Ceil from "../atom/Cell";
 import Row from "../molecule/Row";
 import Table from "../molecule/Table";
@@ -30,34 +29,6 @@ const data = [
   "오",
   "분",
 ];
-
-let realData: { [key: string]: number } = {
-  낮: 1,
-  다: 1,
-  일: 1,
-  세: 1,
-  네: 1,
-  여: 1,
-  섯: 1,
-  곱: 1,
-  열: 1,
-  한: 1,
-  덟: 1,
-  아: 1,
-  홉: 1,
-  두: 1,
-  시: 1,
-  밤: 1,
-  정: 1,
-  이: 1,
-  삼: 1,
-  십: 2,
-  사: 1,
-  오: 2,
-  분: 1,
-};
-
-// 위에 것이 아니라 받은 스트링의 마진을 계산해야 할듯
 
 const perRow = 5;
 const rows = Math.ceil(data.length / perRow);
