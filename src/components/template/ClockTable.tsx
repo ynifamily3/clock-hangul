@@ -57,7 +57,7 @@ export default function ClockTable(props: { dateString: string }) {
                   return (
                     <Ceil
                       key={"clock-ceil-" + ri + "-" + ci}
-                      color={rests[myword]-- >= 1 ? "rgb(233,233,233)" : ""}
+                      turnOn={rests[myword]-- >= 1 ? "on" : ""}
                     >
                       {myword}
                     </Ceil>
