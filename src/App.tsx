@@ -1,25 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "normalize.css";
+import ClockTable from "./components/template/ClockTable";
+import { createGlobalStyle } from "styled-components";
+import { dateToHangul } from "./util/clock";
 
+const GlobalStyle = createGlobalStyle`
+body {
+  background-color: rgb(32,32,32);
+}
+`;
 function App() {
+  const [date, setDate] = useState<Date>(new Date());
+  useEffect(() => {
+    const id = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+    return () => {
+      clearInterval(id);
+    };
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle />
+      <div>
+        <ClockTable dateString={dateToHangul(date)} />
+      </div>
+    </>
   );
 }
 
