@@ -36,7 +36,7 @@ const dateToHangul = (date: Date) => {
   ret +=
     minute10 > 1 ? numbersMinStr[minute10] + "십" : minute10 === 1 ? "십" : "";
   ret += minute1 >= 5 && minute1 <= 9 ? "오" : "";
-  ret += minute !== 0 ? "분" : "";
+  ret += minute >= 0 && minute <= 4 ? "" : "분";
 
   // 7 ~ 15시 : 낮
   // 나머지: 밤
